@@ -1,6 +1,5 @@
 <?php
 
-
 require '../includes/functions.php';
 
 use PHPUnit\Framework\TestCase;
@@ -9,21 +8,21 @@ class functions extends TestCase
 {
     public function testlistMovies_success()
     {
-        $input = {""["title"]=> string(21) "It Happened One Night" ["year_of_release"]=> string(4) "1934" ["number_of_reviews"]=> string(2) "96" ["rating"]=> string(2) "99" ["rank"]=> string(1) "1"};
-
-        $result = testlistMovies($input);
-
+        $input = [
+            ["title" => "It Happened One Night",
+            "year_of_release"=> "1934",
+            "rating"=> "99"]
+        ];
+        $expected = "<h1>Top Rated Films</h1><br>Title: It Happened One Night<br>Year of Release: 1934<br>Rating: 99%<br><br>";
+        $result = listMovies($input);
+        $this->assertEquals($expected, $result);
         $this->assertIsString($result);
     }
 
-    public function testlistMovies_failure()
+    public function testlistMovies_malformed()
     {
-//        $input = [1, 2, 3, 4];
-//        $expected = [3, 7];
-//        $result = calculateScores($input);
-//
-//        $this->assertIsArray($result);
-//        $this->assertCount(2, $result);
-//        $this->assertIsInt($result[0]);
-//        $this->assertEquals($expected, $result);
+        $input = "title => It Happened One Night year_of_release => 1934 rating => 98";
+        $this->expectException(TypeError::class);
+        $result = listMovies($input);
     }
+}
