@@ -34,5 +34,4 @@ function sendNewItemToDB($title, $year_of_release, $rating) {
         ':year_of_release' => $year_of_release,
         ':rating' => $rating
     ]);
-    header("Location: http://localhost:1234/collector_app/index.php");
 }
