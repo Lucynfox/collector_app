@@ -13,7 +13,7 @@ class functions extends TestCase
             "year_of_release" => "1934",
             "rating" => "99"]
         ];
-        $expected = "<h1>Top Rated Films</h1><br>Title: It Happened One Night<br>Year of Release: 1934<br>Rating: 99%<br><br>";
+        $expected = "<h1>Top Rated Films</h1><p>Title: It Happened One Night</p><p>Year of Release: 1934</p><p>Rating: 99%</p><br>";
         $result = listMovies($input);
         $this->assertEquals($expected, $result);
         $this->assertIsString($result);
