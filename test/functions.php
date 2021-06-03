@@ -18,11 +18,4 @@ class functions extends TestCase
         $this->assertEquals($expected, $result);
         $this->assertIsString($result);
     }
-
-    public function testlistMovies_malformed()
-    {
-        $input = "title => It Happened One Night year_of_release => 1934 rating => 98";
-        $this->expectException(TypeError::class);
-        $result = listMovies($input);
-    }
 }
