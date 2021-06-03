@@ -1,7 +1,5 @@
 <?php
 
-require 'includes/processingPage.php';
-
 function listMovies(array $moviesList): string
 {
     $listOfFilms = "<h1>Top Rated Films</h1>";
