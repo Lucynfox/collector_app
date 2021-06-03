@@ -10,3 +10,9 @@ function listMovies(array $moviesList): string
     }
     return $listOfFilms;
 }
+function connectToDB()
+{
+    $db = new PDO('mysql:host=db;dbname=top_movies', 'root', 'password');
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO:: FETCH_ASSOC);
+    return $db;
+}
